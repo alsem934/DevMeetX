@@ -13,7 +13,7 @@ function Event2() {
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20 text-center">
           <div className="container mx-auto px-6">
-            <h1 className="text-5xl font-bold mb-4">DevMeetup V2</h1>
+            <h1 className="text-5xl font-bold mb-4">DevMeetup 2</h1>
             <p className="text-xl mb-4">The second edition brought even more energy and excitement!</p>
           </div>
         </section>

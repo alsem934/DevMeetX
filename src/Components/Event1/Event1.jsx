@@ -33,8 +33,7 @@ function Event1() {
               <h3 className="text-xl font-bold mb-1 text-black">Yeabsra</h3>
               <p className="text-black animate-pulse">Flutter Developer</p>
             </div>
-            // In App.jsx or any file
-console.log("Deploying new version!");
+           
 
           </div>
         </section>
