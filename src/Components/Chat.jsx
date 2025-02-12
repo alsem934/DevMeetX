@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { db, auth } from "../firebaseConfig";
 import { collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "firebase/firestore";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import ClipLoader from "react-spinners/ClipLoader";
+import { ClipLoader } from "react-spinners";
+
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
