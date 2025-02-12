@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { db, auth } from "../firebaseConfig";
 import { collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "firebase/firestore";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import ClipLoader from "react-spinners/ClipLoader";
-
-
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -13,7 +10,6 @@ const Chat = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState({ signIn: false, register: false });
 
   useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('timestamp', 'asc'));
@@ -24,28 +20,22 @@ const Chat = () => {
   }, []);
 
   const signInWithEmail = async () => {
-    setLoading(prev => ({ ...prev, signIn: true }));
     setError('');
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       setUser(result.user);
     } catch (error) {
       setError(error.message);
-    } finally {
-      setLoading(prev => ({ ...prev, signIn: false }));
     }
   };
 
   const registerWithEmail = async () => {
-    setLoading(prev => ({ ...prev, register: true }));
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(result.user, { displayName: email.split('@')[0] });
       setUser(auth.currentUser);
     } catch (error) {
       setError(error.message);
-    } finally {
-      setLoading(prev => ({ ...prev, register: false }));
     }
   };
 
@@ -72,10 +62,10 @@ const Chat = () => {
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" className="mb-2 p-2 w-full bg-gray-600 text-white rounded" />
             
             <button onClick={signInWithEmail} className="bg-blue-600 w-full py-2 rounded hover:bg-blue-700 mb-2 flex justify-center items-center">
-              {loading.signIn ? <ClipLoader size={20} color="#fff" /> : "Sign in"}
+              Sign in
             </button>
             <button onClick={registerWithEmail} className="bg-green-600 w-full py-2 rounded hover:bg-green-700 flex justify-center items-center">
-              {loading.register ? <ClipLoader size={20} color="#fff" /> : "Register"}
+              Register
             </button>
           </div>
         ) : (
