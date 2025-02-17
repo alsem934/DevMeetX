@@ -13,5 +13,8 @@ export default defineConfig({
     rollupOptions: {
       external: ['firebase/app', 'firebase/firestore', 'firebase/auth'],
     },
+    define: {
+      'process.env': process.env
+    }
   },
 })

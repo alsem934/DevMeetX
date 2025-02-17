@@ -5,6 +5,13 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+
+    <!-- Firebase CDN Scripts -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+    </script>
   </head>
   <body>
     <div id="root"></div>

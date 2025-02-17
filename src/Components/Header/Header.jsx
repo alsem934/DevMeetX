@@ -7,8 +7,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars as Menu, FaTimes as X } from 'react-icons/fa';
 import { FaRegCommentDots } from "react-icons/fa";
-
-
+import CircularText from './CircularText';
+  
+<CircularText
+  text="REACT*BITS*COMPONENTS*"
+  onHover="speedUp"
+  spinDuration={20}
+  className="custom-class"
+/>
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,7 +22,17 @@ const Header = () => {
     <header className="bg-white shadow fixed w-full top-0 left-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">DevMeetup</div>
+
+
+
+        <CircularText
+        
+        text='DevMeetup'
+        onHover='speedUp'
+        spinDuration={20}
+        className="text-2xl font-bold text-blue-600"
+
+        />
 
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
